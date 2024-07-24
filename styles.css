@@ -15,7 +15,7 @@
     z-index:300;
 }
 .background-container {
-  background-image: url("../WebsiteCh/Imagges/background.jpg");
+  background-image: url("WebsiteCh/Imagges/background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
