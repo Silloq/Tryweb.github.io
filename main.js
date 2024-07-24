@@ -22,7 +22,7 @@ container.appendChild(renderer.domElement);
 renderer.setClearColor(0xFFFFFF);
 // Load the texture
 const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load("Imagges/Picture1.jpg", (texture) => {
+const texture = textureLoader.load("Imagges/eva.jpg", (texture) => {
   texture.minFilter = THREE.LinearFilter;
   texture.magFilter = THREE.LinearFilter;
   const circleShape = new THREE.Shape();
