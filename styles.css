@@ -37,7 +37,7 @@ body{
 }
 .background-container {
   /* or this? ../WebsiteCh/Imagges/livestream.jpg */
-  background-image: url("../WebsiteCh/Imagges/livestream.jpg");
+  background-image: url("Imagges/livestream.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
