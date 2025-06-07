@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updatingrightcircle() {
         if (window.matchMedia('(max-width:768px').matches){
-            targetScrollPosition = 3100;
+            targetScrollPosition = 1000;
         } else {
             targetScrollPosition = 1300;
         }
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
  
     function updateTimescroll() {
         if (window.matchMedia('(max-width: 768px)').matches) {
-            timescroll = 2000; 
+            timescroll = 250; 
         } else {
             timescroll = 250; 
         }
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updatepopingtime() {
         if (window.matchMedia('(max-width:768px').matches){
-            timescroll = 3100;
+            timescroll = 1400;
         }
         else {
             timescroll = 1400;
@@ -208,13 +208,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.addEventListener('DOMContentLoaded', function() {
     const element = document.getElementById('BF');
-    let timescroll = 2220;
+    let timescroll = 2050;
 
     function updateTimescroll() {
         if (window.matchMedia('(max-width: 768px)').matches) {
-            timescroll = 3200;
+            timescroll = 3050;
         } else {
-            timescroll = 2220;
+            timescroll = 2050;
         }
     }
 
@@ -223,9 +223,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', function() {
         if (window.scrollY >= timescroll) {
-            if (timescroll === 2220) {
+            if (timescroll === 2050) {
                 element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(65ch, 5in, -16em) scale3d(1.3, 1.3, 1.3)';
-            } else if (timescroll === 3200) {
+            } else if (timescroll === 3050) {
                 element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(-30ch, 4.45in, 5em) scale3d(0.9, 0.9, 0.9)';
             }
         } else {
@@ -241,14 +241,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const element = document.getElementById('BF3');
-    let timescroll = 2220;
+    let timescroll = 2050;
     
     function updatingTimescroll() {
         if(window.matchMedia('(max-width:768px)').matches){
-            timescroll = 3200;
+            timescroll = 3050;
         }
         else {
-            timescroll = 2220;
+            timescroll = 2050;
         }
     }
     
@@ -258,9 +258,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', function(){
         if (window.scrollY >= timescroll) {
-            if (timescroll === 2220) {
+            if (timescroll === 2050) {
                 element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(127ch, 1in, -15em) scale3d(1.1, 1.1, 1.1)';
-            } else if (timescroll === 3200) {
+            } else if (timescroll === 3050) {
                 element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(20ch, 0.2in, 2em) scale3d(0.8, 0.8, 0.8)';
             }
         } else {
@@ -271,14 +271,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const element = document.getElementById('BF2');
-    let timescroll = 2220;
+    let timescroll = 1000;
 
 function updatingtimescrollbf2() {
     if (window.matchMedia('(max-width:768px)').matches){
-        timescroll = 3200;
+        timescroll = 3050;
     }
     else {
-        timescroll = 2220;
+        timescroll =2050;
     }
 }
 updatingtimescrollbf2();
@@ -286,9 +286,9 @@ window.addEventListener('resize', updatingtimescrollbf2)
 
     window.addEventListener('scroll', function(){
         if (window.scrollY >= timescroll) {
-            if (timescroll === 2220) {
+            if (timescroll === 2050) {
                 element.style.transform = 'rotate(-30deg) rotatex(20deg) translate3d(105ch, 5.5in, -15em) scale3d(1.2, 1.2, 1.2)'; 
-            } else if (timescroll === 3200) {
+            } else if (timescroll === 3050) {
                 element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(-2ch, 4.1in, 4em) scale3d(0.85, 0.85, 0.85)';
             }
         } else {
@@ -322,44 +322,162 @@ function myFunction() {
 
 // THIS BELOW IS FOR LIVESTREAM.HTML HAVENT FIXED BUT YEA HAHA.
 
-   const apiKey = '';
-    const channelId = 'UCN4RQ2t7V63RWQFdxAm1Liw'; 
+ const apiKey = ' AIzaSyCbO-SJJ73D2_CVXDUjE38RuC7nK-RNP1E';
+    const channelId = 'UCN4RQ2t7V63RWQFdxAm1Liw';
+    async function loadLiveOrLatestStreamAndThumbnails() {
+   
 
-    async function loadLiveOrLatestStream() {
-        // this is for current live
-        let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
-        let res = await fetch(url);
-        let data = await res.json();
+    let mainVideoId = null;
 
-        let videoId = null;
+    // 1. Try current live
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
+    let res = await fetch(url);
+    let data = await res.json();
+
+    if (data.items && data.items.length > 0) {
+        mainVideoId = data.items[0].id.videoId;
+    } else {
+        // 2. Try recent past livestream if no current live
+        url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
+        res = await fetch(url);
+        data = await res.json();
 
         if (data.items && data.items.length > 0) {
-            videoId = data.items[0].id.videoId;
-        } else {
-          // this is for past if no current live
-            url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
-            res = await fetch(url);
-            data = await res.json();
-
-            if (data.items && data.items.length > 0) {
-                videoId = data.items[0].id.videoId;
-            }
-        }
-
-        if (videoId) {
-            document.getElementById('latestVideoContainer').innerHTML =
-                `<iframe width="100%" height="100%" 
-                         src="https://www.youtube.com/embed/${videoId}" 
-                         frameborder="22" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                         allowfullscreen>
-                 </iframe>`;
-        } else {
-            document.getElementById('latestVideoContainer').innerText = "No livestream available.";
+            mainVideoId = data.items[0].id.videoId;
         }
     }
 
-    window.addEventListener('DOMContentLoaded', loadLiveOrLatestStream);
+    // 3. Show main video
+    if (mainVideoId) {
+        setMainVideo(mainVideoId);
+    } else {
+        document.getElementById('latestVideoContainer').innerText = "No livestream available or has reached quota.";
+    }
+
+    // 4. Fetch more recent past live videos for thumbnails
+    url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=5&key=${apiKey}`;
+    res = await fetch(url);
+    data = await res.json();
+
+    if (data.items) {
+        const thumbContainer = document.getElementById('videoThumbnails');
+        thumbContainer.innerHTML = '';
+
+        data.items.forEach(item => {
+    const videoId = item.id.videoId;
+
+    // Create wrapper div
+    const thumbWrapper = document.createElement('div');
+    thumbWrapper.className = 'videoThumb';
+
+    // Create image
+    const thumb = document.createElement('img');
+    thumb.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    thumb.alt = item.snippet.title;
+    thumb.style.width = '100%';
+    thumb.style.borderRadius = '10px';
+    thumb.style.cursor = 'pointer';
+
+    thumb.onclick = () => {
+        setMainVideo(videoId);
+    };
+
+    thumbWrapper.appendChild(thumb);
+    thumbContainer.appendChild(thumbWrapper);
+        });
+    }
+}
+
+function setMainVideo(videoId) {
+    document.getElementById('latestVideoContainer').innerHTML = `
+        <iframe width="100%" height="100%" 
+            src="https://www.youtube.com/embed/${videoId}" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>`;
+}
+
+window.addEventListener('DOMContentLoaded', loadLiveOrLatestStreamAndThumbnails);
+
+
+
+async function updateLatestThumbnail() {
+        url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
+    
+  try {
+    const res = await fetch(url);
+
+    if (!res.ok) throw new Error("API fetch failed");
+
+    const data = await res.json();
+
+    const imgEl = document.querySelector('.item img');
+    const spanEl = document.querySelector('.item span');
+
+    if (data?.items?.length > 0) {
+      const videoId = data.items[0].id.videoId;
+      const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+      if (imgEl) {
+        imgEl.src = thumbnailUrl;
+        imgEl.alt = data.items[0].snippet.title;
+        imgEl.style.display = 'block';
+      }
+      if (spanEl) {
+        spanEl.innerText = "Watch The Latest Livestream";
+      }
+    } else {
+      throw new Error("No livestream found or Has Reached Quota");
+    }
+  } catch (err) {
+    const imgEl = document.querySelector('.item img');
+    const spanEl = document.querySelector('.item span');
+
+    if (imgEl) imgEl.style.display = 'none';
+    if (spanEl) spanEl.innerText = "No livestream available or has reached quota.";
+
+    console.error("Error:", err);
+  }
+}
+
+updateLatestThumbnail();
+
+    // async function loadLiveOrLatestStream() {
+    //     // this is for current live
+    //     let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
+    //     let res = await fetch(url);
+    //     let data = await res.json();
+
+    //     let videoId = null;
+
+    //     if (data.items && data.items.length > 0) {
+    //         videoId = data.items[0].id.videoId;
+    //     } else {
+    //       // this is for past if no current live
+    //         url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
+    //         res = await fetch(url);
+    //         data = await res.json();
+
+    //         if (data.items && data.items.length > 0) {
+    //             videoId = data.items[0].id.videoId;
+    //         }
+    //     }
+
+    //     if (videoId) {
+    //         document.getElementById('latestVideoContainer').innerHTML =
+    //             `<iframe width="100%" height="100%" 
+    //                      src="https://www.youtube.com/embed/${videoId}" 
+    //                      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    //                      allowfullscreen>
+    //              </iframe>`;
+    //     } else {
+    //         document.getElementById('latestVideoContainer').innerText = "No livestream available or Has reached quota.";
+    //     }
+    // }
+
+    // window.addEventListener('DOMContentLoaded', loadLiveOrLatestStream);
+
 // QIRXD8faDN4
 //     UCN4RQ2t7V63RWQFdxAm1Liw channel
-
+// AIzaSyCbO-SJJ73D2_CVXDUjE38RuC7nK-RNP1E
 

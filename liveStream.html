@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href="styles.css">
     <title>WebCh</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+  
     <script src="myscript.js"></script>
-    <script type="module" src="main.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -22,10 +21,10 @@
             <h2 >Welcome to WEBCh </h2>
 
           <nav id ="myLinks" class = "cont">
-           <a href="#">About</a>
-           <a href="#">Services</a>
-           <a href="#">Contact</a>
-           <a href="#">Features</a>
+           <a href="index.html">Livestreams</a>
+           <a href="index.html#service">Services</a>
+      <a href="index.html#contact">Contact</a>
+         
            
           </nav>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -38,8 +37,18 @@
 
 
 <div class="Livecontent">
-  <div class="LiveBox1"></div>  
+  <div class="LiveBox1">
+    <div class="live-text">
+       <h2> Welcome! We're Glad You're Here</h2>
+    <p><strong>Join us live as we worship God together!</strong></p>
+    <p>Missed a service or livestream?</p>
+    <p><a href="https://www.youtube.com/@rainmchurch/streams" target="_blank">
+     Catch up on past sermons and special events</a> <br>on our YouTube channel.</p>
+    
+  </div>
+  </div>  
   <div class="LiveBox2" id="latestVideoContainer"></div>   
+ 
 </div>
 
 
@@ -50,22 +59,17 @@
   
 
 
-<div id="middlesection" class="middlesection">
-    <h3 id = "ror"> Changling Lives. </h3>
+<div id="Livemiddlesection" class="Livemiddlesection">
+    <h2 > Check Our Previous LiveStreams.</h2>
     <!-- <h3 id = "try" style=" padding-right: 25px; padding-left: 25px;" > Sleek. </h3> -->
-    <h3 id = "wet"> Transforming Nations. </h3>
-    
+    <h2 ><a href="https://www.youtube.com/@rainmchurch/streams" target="_blank"> Want More? Check Our Youtube Channel.</a>  </h2>
+    <div id="videoThumbnails" ></div>
 </div>
-
-
-
-
-
-
 
 <div class="line-container">
     <div class="line1" id ="line top"></div>
 </div>
+
 
 </body>
 </html>
