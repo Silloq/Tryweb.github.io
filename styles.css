@@ -161,12 +161,12 @@ body{
  .cont a{
   background-color:#003366;
   border-radius: 75px;
-  width: 75%;
+  width: 35%;
   height:auto;
   align-items:flex-end;
   display:flex;
   justify-content: flex-end;
-  width: 20%;
+  
  }
   .nav #myLinks.show {
     display: flex;
@@ -408,7 +408,9 @@ border:none;
  
 }
 
-
+.item a {
+  text-decoration: none;
+}
 
 .item span {
   top: 90%;               
@@ -418,7 +420,7 @@ border:none;
   align-items: center;
   text-align: center;
   max-height: 100%;
- max-width:100%;
+ max-width:50%;
     white-space: nowrap;    
   transform: translate(-50%, -50%);
   color: white;
@@ -453,9 +455,10 @@ border:none;
     }
   
     .item span {
-        font-size: 18px; 
-        top: 80%;
-    }
+    font-size: 18px; 
+    top: 80%;
+    white-space: normal; 
+  }
   }
 
 /* .item::after{
