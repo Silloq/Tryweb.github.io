@@ -434,8 +434,10 @@ async function updateLatestThumbnail() {
     const spanEl = document.querySelector('.item span');
 
     if (imgEl) imgEl.style.display = 'none';
-    if (spanEl) spanEl.innerText = "No livestream available or has reached quota.";
-
+    if (spanEl) {
+    spanEl.innerText = "No livestream available or has reached quota.";
+    spanEl.style.position = 'static'; 
+  }
     console.error("Error:", err);
   }
 }
