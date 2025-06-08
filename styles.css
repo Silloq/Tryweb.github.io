@@ -291,9 +291,10 @@ border:none;
 }
 
 @media (max-width: 768px) {
-
+ 
     .middlesection h3 {
     font-size: 28px;
+      padding: 5px;
   }
 
 
@@ -740,7 +741,7 @@ border:none;
   }
   .popbox {
     width: 45.458vw;
-    height: 400px;
+    height: 350px;
     top: 10%;
     right: 7%
    
@@ -748,7 +749,7 @@ border:none;
   
   .popbox img {
     object-fit: fill;
-    height: 400px;
+    height: 350px;
   }
 }
 @media (max-width: 380px){
