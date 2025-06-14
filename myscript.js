@@ -378,9 +378,11 @@ function myFunction() {
     thumb.style.borderRadius = '10px';
     thumb.style.cursor = 'pointer';
 
-    thumb.onclick = () => {
+  ['click', 'touchstart'].forEach(eventType => {
+    thumb.addEventListener(eventType, () => {
         setMainVideo(videoId);
-    };
+    });
+});
 
     thumbWrapper.appendChild(thumb);
     thumbContainer.appendChild(thumbWrapper);

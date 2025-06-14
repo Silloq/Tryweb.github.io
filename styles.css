@@ -1271,7 +1271,7 @@ border-radius: 25px;
     max-width: 33.333%;  /* Ensures only 3 items per row */
     max-height: 33.333%; /* Optional: helps with vertical alignment */
     padding: 5px;
-    object-fit: cover;   /* Makes images fit the box better */
+    object-fit: cover;   
   }
 }
 
@@ -1293,12 +1293,13 @@ border-radius: 25px;
 
 .Livemiddlesection {
   height:auto;
-  z-index:-20;
+ 
   display: flex;
   justify-content: center;
   align-items: center; 
   flex-wrap: wrap;
   perspective: 800px; 
+      z-index: 10 ;
 }
 .Livemiddlesection a{
   text-decoration: none;
