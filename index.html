@@ -7,7 +7,7 @@
     <title>WebCh</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-    <script src="myscript.js"></script>
+    
     <script type="module" src="main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -19,28 +19,25 @@
 <body  >
  
     <div class="background-container">
-    
-        <div class = "nav" id = "navi">
-           <a href="index.html" class="logo-link"> 
-            <img src = "Imagges/Picture1.jpg" alt="WebCh" >    </a>
-            <h2 >Welcome to WEBCh </h2>
+  <div class="nav" id="navi">
+  <a href="index.html" class="logo-link">
+    <img src="Imagges/Picture1.jpg" alt="WebCh">
+  </a>
 
-        <nav id ="myLinks" class = "cont">
-           <a href="liveStream.html">Livestreams</a>
-           <a href="#service">Services</a>
-           <a href="#contact">Contact</a>
-           <!-- <a href="#">Features</a> -->
-           
-          </nav>
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-          </a>
-       </div>
+  <h2>Welcome to WEBCh</h2>
+
+  <nav id="myLinks" class="cont">
+    <a href="liveStream.html">Livestreams</a>
+    <a href="#service">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
        
            
-
-<!-- <div class ="design3D"> -->
-
 
 <div class = "content"> 
 <h1>Royal Ambassadors International
@@ -49,20 +46,6 @@
 
 
     </div>  
-<!-- 
-        <model-viewer 
-        src="../GPSWeb/3DObjects/Copy of ESP32-C3 XIAO.glb"
-  alt="GPS Design"
-  camera-controls
-  disable-zoom
-  disable-tap
-  auto-rotate
-  ar-status="not-presenting"
-  
-  interaction-policy="none"
-    ></model-viewer>
-     -->
-    <!-- </div> -->
 
     </div>
   
@@ -76,49 +59,18 @@
 </div>
 
 
-
-
-
-
-
 <div class="line-container">
     <div class="line1" id ="line top"></div>
 </div>
 
 <div class = "container">
 
-    <!-- item2,3,4 can be removed. -->
-
-
- <!-- <div class="mainvid" id="latestVideoContainer"></div>   
- 
-</div> -->
-
-        
     <div class="item " >
         <a href="liveStream.html ">
         <img src = "" alt="">
         <span>Watch The Latest Livestream</span>
     </a>
     </div>
-
-    <!-- <div class="item item2">
-        <a href="liveStream.html "> 
-        <img  src = "../GPSWeb/Imagges/eva.jpg" alt=""></a>
-    </div>
-
-    <div class="item item3" id = "picture1">   
-         <a href="liveStream.html "> 
-        <span> What Is the Gospel?</span>
-        <img  src = "../GPSWeb/Imagges/eva.jpg" alt=""></a>
-    </div>
-
-    <div class="item item4">
-         <a href="liveStream.html ">
-        <img  src = "../GPSWeb/Imagges/448564040_781236914190297_1926278018650337430_n.jpg" alt=""> </a>
-    </div> -->
-
-
 
 </div>
 
@@ -127,90 +79,60 @@
 </div>
 
 
-
-
-<!-- <div class = "Dobject">
-<model-viewer 
-        src="3DObjects/Arduino_GPS.glb"
-  alt="GPS Design"
-  disable-tap
-  auto-rotate
-  ar-status="not-presenting"
-  camera-controls
-  disable-zoom
-  interaction-policy="none"
-    ></model-viewer>
-</div> -->
-
-
-<!-- <div class = "Jscon" id="threejs-container" ></div> -->
-
-<!-- just remove the id  id="threejs-container"
-but also change the timescroll for the javascript if you do this
-change it from 2600 and 2620 to 2200 and 2220
-IF you want to remove the 3d icon use this  -->
 <div class="spacer">  
    
 </div>
 
-<div class = "almostend">
-    
-    <div class = "circleleft">
-     
-    </div>
+<div class="almostend">
+    <div class="image-stack">
+  <div class="popbox" id="poping">
+    <img src="Imagges/ran.png" alt="rain">
+  </div>
 
-    <div class = "circleright" id = "rightcircle">
-
-    
-    </div>
-
-    <div class = "popbox" id ="poping">
-    
-        <img src = "Imagges/ran.png" alt = "rain">
- 
-    </div>
-    <div id="service"></div>
-   <div class="text-container" >
-    <h3 >Join Us Every Sunday at 10 AM</h3>
+  <div class="text-container">
+    <h3>Join Us Every Sunday at 10 AM</h3>
     <h1>Worship God With Us — Whether You're Here or Watching Online</h1>
+  </div>
 </div>
 </div>
+
+
+
 <div class = "endbox" id = "contact">
     <div class = "tet">
       <h1> Follow Us On<br>  Our  Social<br> Media Platforms! </h1>
       <h1> Reach Out To Us </h1> 
       <p> +63123456789</p>
-     <a href ="https://www.google.com/maps/place/Royal+Ambassadors+International+and+Network+of+Ministries/@14.845741,120.8345925,20z/
-     data=!4m6!3m5!1s0x339653b174b14069:0x6880aa506243fd8c!8m2!3d14.8459381!4d120.8348012!16s%2Fg%2F11hcq89y34?entry=ttu"
-     title = "This leads to GoogleMaps" target=_blank>
-     <h3> Our Location: Balaga Bldg., McArthur Highway, <br> Dakila, City of Malolos, Bulacan, Malolos, Philippines </a> 
-        <img src = "Imagges/icon-removebg-preview.png" id ="icongps"></h3>
-      
+    <h3>
+  <a href="https://www.google.com/maps/place/..."
+     title="This leads to GoogleMaps"
+     target="_blank">
+     Our Location: Balaga Bldg., McArthur Highway, <br>
+     Dakila, City of Malolos, Bulacan, Malolos, Philippines
+     <img src="Imagges/icon-removebg-preview.png" id="icongps" alt="Location Icon">
+  </a>
+</h3>
     </div>
 
+<div class="boxes"> 
+  <a class="boxfooter" href="https://www.facebook.com/rainmchurch" 
+     title="This leads to Facebook" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
 
-<div class="boxes" > 
-   <a class ="boxfooter" id ="BF" href = "https://www.facebook.com/rainmchurch" title = "This leads to https://www.facebook.com/rainmchurch ">
-    <img src = "Imagges/faceeb.png" alt=""> </a>
-      
+  <a class="boxfooter2" href="https://www.youtube.com/@rainmchurch" 
+     title="This leads to YouTube" target="_blank">
+    <i class="fab fa-youtube"></i>
+  </a>
 
-
-
-    <a  class ="boxfooter2" id ="BF2" href ="https://www.youtube.com/@rainmchurch" title = "This leads to https://www.youtube.com/@rainmchurch"> 
-    <img src = "Imagges/yt.png" alt=""> 
-</a>
-
-
-
-
- <a class ="boxfooter3" id="BF3" href ="https://www.instagram.com/rainmchurch/?hl=en" title ="This leads to https://www.instagram.com/rainmchurch/?hl=en"> 
-    <img src = "Imagges/instat.png" alt=""> </a>
-
-
+  <a class="boxfooter3" href="https://www.instagram.com/rainmchurch/?hl=en" 
+     title="This leads to Instagram" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
 </div>
 </div>
 
- 
+ <script src="myscript.js"></script>
 </body>
 
 </html>

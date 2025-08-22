@@ -90,35 +90,29 @@ document.addEventListener('DOMContentLoaded', function() {
 //     });
 // });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const element = document.getElementById('rightcircle');
-    let targetScrollPosition = 1300; 
+document.addEventListener('DOMContentLoaded', function () {
+  const almostend = document.querySelector('.almostend');
+  let startLeft = 'clamp(40rem, 6vw, 5rem)';  
+  let endLeft   = 'clamp(5rem, 20vw, 10rem)'; 
 
-    function updatingrightcircle() {
-        if (window.matchMedia('(max-width:768px').matches){
-            targetScrollPosition = 1000;
-        } else {
-            targetScrollPosition = 1300;
-        }
-    } 
+  function updateCirclePosition() {
+    const triggerPoint = window.innerHeight * 1;
+    const scrollY = window.scrollY;
 
-    updatingrightcircle();
-    window.addEventListener('resize',updatingrightcircle);
+    if (scrollY > triggerPoint) {
+      // move circle left smoothly
+      almostend.style.setProperty('--circle-left', endLeft);
+    } else {
+      // reset to start
+      almostend.style.setProperty('--circle-left', startLeft);
+    }
+  }
 
-    window.addEventListener('scroll', function() {
-
-
-        if (window.scrollY >= targetScrollPosition) {
-            element.style.transform = 'translate(-25%, -10%)'; 
-            element.style.right = '50%';
-        } else {
-           
-        }
-    });
-
-   
+  
+  updateCirclePosition();
+  window.addEventListener('scroll', updateCirclePosition);
+  window.addEventListener('resize', updateCirclePosition);
 });
-
 document.addEventListener('DOMContentLoaded', function() {
     const element = document.getElementById('line top');
     const timescroll = 150;
@@ -178,123 +172,37 @@ document.addEventListener('DOMContentLoaded', function() {
    
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const element = document.getElementById('poping');
-    let timescroll = 1400;
+document.addEventListener('DOMContentLoaded', function () {
+  const element = document.getElementById('poping');
+  const triggerPoint = window.innerHeight * 0.9; 
 
-    function updatepopingtime() {
-        if (window.matchMedia('(max-width:768px').matches){
-            timescroll = 1400;
-        }
-        else {
-            timescroll = 1400;
-        }
+  window.addEventListener('scroll', function () {
+    const elementTop = element.getBoundingClientRect().top;
+
+    if (elementTop < triggerPoint) {
+      element.style.transform = 'scale(1)';   
+    } else {
+      
     }
-
-    updatepopingtime();
-    window.addEventListener('resize',updatepopingtime);
-
-
-    window.addEventListener('scroll', function(){
-        if(window.scrollY >=timescroll){
-            element.style.transform = 'scale(1)';
-           
-        }else {
-           
-        }
-    });
-
-   
+  });
 });
-document.addEventListener('DOMContentLoaded', function() {
-    const element = document.getElementById('BF');
-    let timescroll = 2050;
+document.addEventListener("DOMContentLoaded", function () {
+  const fb = document.querySelector(".boxfooter");
+  const yt = document.querySelector(".boxfooter2");
+  const ig = document.querySelector(".boxfooter3");
 
-    function updateTimescroll() {
-        if (window.matchMedia('(max-width: 768px)').matches) {
-            timescroll = 3050;
-        } else {
-            timescroll = 2050;
-        }
-    }
+  const triggerPoint = window.innerHeight * 0.8; 
 
-    updateTimescroll();
-    window.addEventListener('resize', updateTimescroll);
+  window.addEventListener("scroll", function () {
+    const boxes = [fb, yt, ig];
 
-    window.addEventListener('scroll', function() {
-        if (window.scrollY >= timescroll) {
-            if (timescroll === 2050) {
-                element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(65ch, 5in, -16em) scale3d(1.3, 1.3, 1.3)';
-            } else if (timescroll === 3050) {
-                element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(-30ch, 4.45in, 5em) scale3d(0.9, 0.9, 0.9)';
-            }
-        } else {
-            
-
-
-
-
-        }
+    boxes.forEach((box) => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < triggerPoint) {
+        box.classList.add("active");
+      }
     });
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const element = document.getElementById('BF3');
-    let timescroll = 2050;
-    
-    function updatingTimescroll() {
-        if(window.matchMedia('(max-width:768px)').matches){
-            timescroll = 3050;
-        }
-        else {
-            timescroll = 2050;
-        }
-    }
-    
-    updatingTimescroll();
-    window.addEventListener('resize', updatingTimescroll);
-    
-    
-    window.addEventListener('scroll', function(){
-        if (window.scrollY >= timescroll) {
-            if (timescroll === 2050) {
-                element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(127ch, 1in, -15em) scale3d(1.1, 1.1, 1.1)';
-            } else if (timescroll === 3050) {
-                element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(20ch, 0.2in, 2em) scale3d(0.8, 0.8, 0.8)';
-            }
-        } else {
-            
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const element = document.getElementById('BF2');
-    let timescroll = 1000;
-
-function updatingtimescrollbf2() {
-    if (window.matchMedia('(max-width:768px)').matches){
-        timescroll = 3050;
-    }
-    else {
-        timescroll =2050;
-    }
-}
-updatingtimescrollbf2();
-window.addEventListener('resize', updatingtimescrollbf2)
-
-    window.addEventListener('scroll', function(){
-        if (window.scrollY >= timescroll) {
-            if (timescroll === 2050) {
-                element.style.transform = 'rotate(-30deg) rotatex(20deg) translate3d(105ch, 5.5in, -15em) scale3d(1.2, 1.2, 1.2)'; 
-            } else if (timescroll === 3050) {
-                element.style.transform = 'rotate(-30deg) rotatex(25deg) translate3d(-2ch, 4.1in, 4em) scale3d(0.85, 0.85, 0.85)';
-            }
-        } else {
-            
-        }
-    });
+  });
 });
 document.addEventListener('DOMContentLoaded', function() {
     const element = document.getElementById('icongps');
@@ -329,7 +237,7 @@ function myFunction() {
 
     let mainVideoId = null;
 
-    // 1. Try current live
+    
     let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
     let res = await fetch(url);
     let data = await res.json();
@@ -337,7 +245,7 @@ function myFunction() {
     if (data.items && data.items.length > 0) {
         mainVideoId = data.items[0].id.videoId;
     } else {
-        // 2. Try recent past livestream if no current live
+     
         url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
         res = await fetch(url);
         data = await res.json();
@@ -347,14 +255,14 @@ function myFunction() {
         }
     }
 
-    // 3. Show main video
+   
     if (mainVideoId) {
         setMainVideo(mainVideoId);
     } else {
         document.getElementById('latestVideoContainer').innerText = "No livestream available or has reached quota.";
     }
 
-    // 4. Fetch more recent past live videos for thumbnails
+   
     url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=5&key=${apiKey}`;
     res = await fetch(url);
     data = await res.json();
@@ -366,11 +274,11 @@ function myFunction() {
         data.items.forEach(item => {
     const videoId = item.id.videoId;
 
-    // Create wrapper div
+   
     const thumbWrapper = document.createElement('div');
     thumbWrapper.className = 'videoThumb';
 
-    // Create image
+    
     const thumb = document.createElement('img');
     thumb.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     thumb.alt = item.snippet.title;
