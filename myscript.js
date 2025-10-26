@@ -190,18 +190,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const fb = document.querySelector(".boxfooter");
   const yt = document.querySelector(".boxfooter2");
   const ig = document.querySelector(".boxfooter3");
+  const boxes = [fb, yt, ig];
 
-  const triggerPoint = window.innerHeight * 0.9; 
+  function activateBoxes() {
+    boxes.forEach((box) => box.classList.add("active"));
+  }
 
   window.addEventListener("scroll", function () {
-    const boxes = [fb, yt, ig];
+    // only on mobile
+    if (window.innerWidth <= 768) {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const pageHeight = document.documentElement.scrollHeight;
 
-    boxes.forEach((box) => {
-      const boxTop = box.getBoundingClientRect().top;
-      if (boxTop < triggerPoint) {
-        box.classList.add("active");
+      // near bottom threshold (100px from bottom)
+      if (scrollPosition >= pageHeight - 100) {
+        activateBoxes();
       }
-    });
+    } else {
+      // desktop fallback: trigger as soon as they enter view
+      boxes.forEach((box) => {
+        const triggerPoint = window.innerHeight * 0.9;
+        const boxTop = box.getBoundingClientRect().top;
+        if (boxTop < triggerPoint) box.classList.add("active");
+      });
+    }
   });
 });
 document.addEventListener('DOMContentLoaded', function() {
