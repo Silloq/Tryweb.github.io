@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const yt = document.querySelector(".boxfooter2");
   const ig = document.querySelector(".boxfooter3");
 
-  const triggerPoint = window.innerHeight * 0.8; 
+  const triggerPoint = window.innerHeight * 0.9; 
 
   window.addEventListener("scroll", function () {
     const boxes = [fb, yt, ig];
