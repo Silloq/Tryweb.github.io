@@ -734,7 +734,7 @@ border:none;
     align-items: center;
     text-align: center;
     gap: 1rem;
-    height: auto;
+    height: 50vh;
     padding: 1rem;
   }
 
